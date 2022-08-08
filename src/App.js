@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import data from './data/data.json';
+import JobListComponent from './components/JobListComponent';
+
+console.log(data);
 
 function App() {
+  const [jobs, setJobs] = useState([]);
+  // const [filters, setFilters]= useState[[]];
+  useEffect(() => setJobs(data), []);
+
+  // const filteredJobs = jobs.filter(filteredByTags);
+
+  // const filterFunc = (job) =>{
+  //   const tags = [role, level, tools, languages];
+  //   if (tools) {
+  //     tags.push(...tools);
+  //   }
+  //   if (tools) {
+  //     tags.push(...languages);
+  //   }
+  //   return job
+  // }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="bg-teal-500">
+        <img className="min-w-max" src="/images/bg-header-desktop.svg" alt="" />
+      </div>
+      {jobs.length.map == 0 ? (
+        <p>No data to display</p>
+      ) : (
+        jobs.map((job) => <JobListComponent job={job} key={job.id} />)
+      )}
     </div>
   );
 }
