@@ -31,7 +31,9 @@ if(tools){
 
 
   return (
-    <article className="flex flex-col bg-white m-4 p-4 shadow-md rounded my-12 gap-3 mx-5 sm:flex-row sm:justify-between  sm:px-8">
+
+    
+    <article className={`flex flex-col bg-white m-4 p-4 shadow-md rounded my-12 gap-3 mx-5 sm:flex-row sm:justify-between  sm:px-8 ${featured ? "border-l-4 border-teal-600" : ""}`}>
       <div className="flex justify-center flex-col gap-3 border-b-2 border-gray-200 sm:border-b-0 sm:flex-row">
     
         <div className="flex gap-1 ">
@@ -62,7 +64,7 @@ if(tools){
 <div 
 onClick={()=>
 handleTagClick(tag)}
-className= 'text-teal-600 text-sm bg-cyan-100 font-bold  mb-4 px-2 py-1 rounded sm:mb-0'>
+className= 'text-teal-600 text-sm bg-cyan-100 font-bold  mb-4 px-2 py-1 rounded sm:mb-0 cursor-pointer'>
   {tag}
 
 
